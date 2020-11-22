@@ -7,7 +7,7 @@
 </head>
 <body>
 <div>
-    <h1>List of Anthologies</h1>
+    <h1>Lista de tares</h1>
     <button><a th:href="@{/Workshop}">Agregar nuevos talleres</a></button>
     <ul>
         <div th:each="entry : ${workshop.tareas}">
@@ -17,10 +17,9 @@
                     <span th:text="${entry.descripcion}">Autor</span><br>
                     <span th:text="${entry.textoLeido}">Objetivo</span><br>
                     <span th:text="${entry.duracion}">Categoria</span>
-                    <span><a th:href="@{/tareasWorkshop/{id}(id=${entry.id})}">Agregar actividades</a></span>
+                                </div>
 
-
-                </div>
+                <button><a th:href="@{/tareasWorkshop/{id}(id=${entry.id})}">Agregar actividades</a></button>
 
 
             </li>

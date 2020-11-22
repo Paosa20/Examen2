@@ -3,7 +3,7 @@
       xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Lista Categorias</title>
 </head>
 <body>
 <div>
@@ -17,7 +17,6 @@
                     <span th:text="${entry.nombre}">Nombre</span>
 
 
-                    <span><a th:href="@{/cambioCategoria/{id}(id=${entry.id})}">Modificar</a></span>
                     <span><a th:href="@{/cambioCategoria/{id}(id=${entry.id})}">Modificar</a></span>
 
                 </div>

@@ -3,7 +3,7 @@
       xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Listar workshops</title>
+    <title>Listar talleres</title>
 </head>
 <body>
 
@@ -38,7 +38,7 @@
     <h4>Listar por Keyword:</h4>
     <form action="#" th:action="@{/listaKeywordWorkshop}"   method="get" id="formKeyword">
         <label for="keyword">Keyword</label>
-        <input th:text="keyword" id="keyword" th:name="keyword">
+        <input id="keyword" th:name="keyword">
         <br/>
         <input type="submit" th:href="@{/listaKeywordWorkshop/{keyword}(keyword=${keyword})}" value="Buscar">
     </form>

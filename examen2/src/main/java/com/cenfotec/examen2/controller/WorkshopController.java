@@ -76,6 +76,10 @@ public class WorkshopController {
 
             anotherWorkshop.setDuracionTotal(tareas.getDuracion());
 
+            workshopService.save(anotherWorkshop);
+
+
+
             model.addAttribute("workshop",workshopService.getAll());
             model.addAttribute("Categoria", categoriaService.getAll());
             model.addAttribute("OtroWorkshop", new Workshop());
@@ -122,6 +126,12 @@ public class WorkshopController {
         return "listaCategorias";
     }
 
+    @RequestMapping(value = "/eliminadaCategorias", method = RequestMethod.DELETE)
+    public String eliminarCategoria(Categorias categoria,Model model) {
+        categoriaService.delete(categoria);
+        model.addAttribute("categoria",categoriaService.getAll());
+        return "listaCategorias";
+    }
 
     @GetMapping("/cambioWorkshop/{id}")
     public String showUpdateForm(@PathVariable("id") long id, Model model) {
@@ -217,7 +227,7 @@ public class WorkshopController {
             XWPFParagraph title2=document.createParagraph();
             title2.setAlignment(ParagraphAlignment.CENTER);
             XWPFRun titleRun2 = title2.createRun();
-            titleRun2.setText("Duracion del taller: "+duracion+" minutos");
+            titleRun2.setText("Duracion del taller= "+duracion+" minutos");
             titleRun2.setColor("000000");
             titleRun2.setBold(true);
             titleRun2.setFontFamily("Arial");
@@ -226,7 +236,7 @@ public class WorkshopController {
             XWPFParagraph subTitle = document.createParagraph();
             subTitle.setAlignment(ParagraphAlignment.CENTER);
             XWPFRun subTitleRun = subTitle.createRun();
-            subTitleRun.setText("Autor del taller :"+infoWorkshop.get().getAutor());
+            subTitleRun.setText("Autor del taller= "+infoWorkshop.get().getAutor());
             titleRun2.setColor("000000");
             titleRun2.setBold(true);
             titleRun2.setFontFamily("Arial");
@@ -249,8 +259,8 @@ public class WorkshopController {
                 subTitleRu.setTextPosition(20);
                 subTitleRu.setUnderline(UnderlinePatterns.DOT_DOT_DASH);
                 actividades= act.getNombre()+"\n"+
-                        "Descripción "+act.getDescripcion()+"\n"+
-                        "Notas de la actividad "+act.getTextoLeido() +"\n";
+                        "Descripción= "+act.getDescripcion()+"\n"+
+                        "Notas de la actividad= "+act.getTextoLeido() +"\n";
                 subTitleRun.setText(actividades);
 
             }
