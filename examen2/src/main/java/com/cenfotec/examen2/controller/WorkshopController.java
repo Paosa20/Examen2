@@ -47,8 +47,6 @@ public class WorkshopController {
 
     @RequestMapping(value = "/Workshop",  method = RequestMethod.POST)
     public String insertarAction(Workshop workshop, BindingResult result, Model model, HttpServletRequest request) {
-
-
         workshopService.save(workshop);
         return "Home";
     }

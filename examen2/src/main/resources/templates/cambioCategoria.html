@@ -9,7 +9,7 @@
 
 <h2>Modificar Categoria</h2>
 
-<form action="#" th:action="@{/modificarCategoria/{id}(id=${id})}" th:object="${categoria}" method="post">
+<form action="#" th:action="@{/cambioCategoria/{id}(id=${id})}" th:object="${categoria}" method="post">
     <label for="nombre">Name</label>
     <input type="text" th:field="*{nombre}" id="nombre">
 
