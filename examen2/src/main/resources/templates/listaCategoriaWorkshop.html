@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Lista de talleres por categoria</h2>
+<button><a href="/listaWorkshop">Lista de talleres</a></button>
+<div>
+
+    <ul>
+        <div th:each="entry : ${categoriaWorkshop}">
+            <li>
+
+                <span><bold>Nombre: </bold></span><span th:text="${entry.nombre}">Nombre</span><br/>
+                <span><bold>Categoria:</bold> </span><span th:text="${entry.categoria}">Categoria</span><br/>
+
+
+            </li>
+        </div>
+
+    </ul>
+</div>
+</body>
+</html>

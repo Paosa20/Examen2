@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Tareas</title>
+</head>
+<body>
+<h1>Bienvenido al los distintos talleres</h1>
+
+Insertar:
+<form action="#" th:action="@{/tareasWorkshop/{id}(id=${workshop.id})}" th:object="${tarea}" method="post">
+    <label for="nombre">Name</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    <br>
+
+    <label for="descripcion">Descripción</label>
+    <input type="text" th:field="*{descripcion}" id="descripcion">
+    <br>
+
+    <label for="textoLeido">Texto </label>
+    <input type="text" th:field="*{textoLeido}" id="textoLeido">
+    <br>
+
+    <label for="duracion">Duración </label>
+    <input type="number" th:field="*{duracion}" id="duracion"> <label>Duración en minutos</label>
+    <br>
+    <input type="submit" value="Agregar tarea">
+</form>
+
+</body>
+</html>

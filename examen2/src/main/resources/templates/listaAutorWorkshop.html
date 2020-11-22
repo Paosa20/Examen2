@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Lista por autores</title>
+</head>
+<body>
+<h2>Lista de talleres por autores</h2>
+<button><a href="/listaWorkshop">Lista de talleres</a></button>
+<div>
+
+    <ul>
+        <div th:each="entry : ${autorWorkshop}">
+            <li>
+
+                <span><bold>Nombre: </bold></span><span th:text="${entry.nombre}">Nombre</span><br/>
+                <span><bold>Autor:</bold> </span><span th:text="${entry.autor}">Autor</span><br/>
+
+
+            </li>
+        </div>
+
+    </ul>
+</div>
+</body>
+</html>

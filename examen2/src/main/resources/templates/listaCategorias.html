@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>Lista de categorias</h1>
+    <button><a th:href="@{/Categorias}"></a>Crear nueva categoria</button>
+
+    <ul>
+        <div th:each="entry : ${categoria}">
+            <li>
+                <div>
+                    <span th:text="${entry.nombre}">Nombre</span>
+
+
+                    <span><a th:href="@{/cambioCategoria/{id}(id=${entry.id})}">Modificar</a></span>
+                    <span><a th:href="@{/cambioCategoria/{id}(id=${entry.id})}">Modificar</a></span>
+
+                </div>
+
+
+            </li>
+        </div>
+    </ul>
+</div>
+
+</body>
+</html>

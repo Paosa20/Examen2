@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="Content-Type" content="text/html"></meta>
+    <title>Home</title>
+</head>
+<body>
+<h1>Bienvenido al los distintos talleres</h1>
+
+Insertar:
+<form action="#" th:action="@{/Workshop}" th:object="${workshop}" method="post">
+    <label for="nombre">Name</label>
+    <input type="text" th:field="*{nombre}" id="nombre">
+    <br>
+
+    <label for="autor">Autor</label>
+   <select id="autor" th:field="*{autor}">
+       <option  value="Paola Sanchez">Paola Sanchez</option>
+       <option value="Mario Aguero">Mario Aguero</option>
+       <option value="Robert Urizar">Robert Urizar</option>
+       <option value="Eduardo Quirós">Eduardo Quirós</option>
+   </select>
+    <br>
+    <label for="objetivo">Objetivo</label>
+    <input type="text" th:field="*{objetivo}" id="objetivo">
+
+    <br>
+    <label for="categoria">Categoria</label>
+   <select id="categoria"  th:field="*{categoria}" >
+       <option th:each=" categoria : ${categoria}"   th:value="${categoria.nombre}" th:text="${categoria.nombre}"></option>
+   </select> <!--llenar categorias con el listar de las mismas-->
+
+    <br>
+
+    <label for="keyword">Keywords</label>
+    <input type="text" th:field="*{keyword}" th:name="keyword" id="keyword">
+
+
+    <input type="submit" value="Agregar taller">
+</form>
+
+</body>
+</html>

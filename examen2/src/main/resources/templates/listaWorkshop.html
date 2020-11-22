@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:th="http://www.thymeleaf.org " xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar workshops</title>
+</head>
+<body>
+
+<div>
+    <h1>Lista de talleres</h1>
+    <button><a th:href="@{/Workshop}">Agregar nuevos talleres</a></button>
+
+    <h4>Listar por categoria:</h4>
+    <form action="#" th:action="@{/listaCategoriaWorkshop}" th:object="${OtroWorkshop}" method="get" id="formCategoria">
+        <label for="categoria">Categoria</label>
+        <select name="categoria" id="categoria"  >
+            <option th:field="*{categoria}" th:each="entryCategoria : ${Categoria}" th:value="${entryCategoria.nombre}" th:text="${entryCategoria.nombre}"></option>
+        </select>
+
+        <br/>
+        <input type="submit" th:href="@{/listaCategoriaWorkshop/{categoria}(categoria=${OtroWorkshop.categoria})}" value="Search">
+    </form>
+    <h4>Listar por autor:</h4>
+    <form action="#" th:action="@{/listaAutorWorkshop}" th:object="${OtroWorkshop}" method="get" id="formAutor">
+        <label for="autor">Autor</label>
+
+        <select id="autor" th:field="*{autor}">
+            <option  value="Paola Sanchez">Paola Sanchez</option>
+            <option value="Mario Aguero">Mario Aguero</option>
+            <option value="Robert Urizar">Robert Urizar</option>
+            <option value="Eduardo Quirós">Eduardo Quirós</option>
+        </select>
+        <br/>
+        <input type="submit" th:href="@{/listaAutorWorkshop/{autor}(autor=${OtroWorkshop.autor})}" value="Buscar">
+    </form>
+
+    <h4>Listar por Keyword:</h4>
+    <form action="#" th:action="@{/listaKeywordWorkshop}"  method="get" id="formKeyword">
+        <label for="keyword">Keyword</label>
+        <input th:text="keywords" id="keyword">
+        <br/>
+        <input type="submit" th:href="@{/listaKeywordWorkshop/{keywords}(keywords=keyword}" value="Buscar">
+    </form>
+
+    <ul>
+        <div th:each="entryWorkshop : ${workshop}">
+            <li>
+                <div>
+                    <span th:text="${entryWorkshop.nombre}">Nombre</span> <br>
+                    <span th:text="${entryWorkshop.autor}">Autor</span><br>
+                    <span th:text="${entryWorkshop.objetivo}">Objetivo</span><br>
+                    <span th:text="${entryWorkshop.categoria}">Categoria</span><br>
+                    <span th:text="${entryWorkshop.keyword}">Keywords</span>
+                    <span th:text="${entryWorkshop.duracionTotal}">Duración en minutos</span>
+
+                    <span><a th:href="@{/cambioWorkshop/{id}(id=${entryWorkshop.id})}">Modificar</a></span>
+                    <span><a th:href="@{/tareasWorkshop/{id}(id=${entryWorkshop.id})}">Agregar actividades</a></span>
+                    <span><a th:href="@{/listaTareas/{id}(id=${entryWorkshop.id})}">listar actividades</a></span>
+                    <span><a th:href="@{/Word/{id}(id=${entryWorkshop.id})}">Generar su archivo word</a></span>
+
+
+                </div>
+
+
+            </li>
+        </div>
+    </ul>
+</div>
+</body>
+</html>
