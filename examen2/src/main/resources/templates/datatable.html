@@ -8,25 +8,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script>
 
-
-$(document).ready( function () {
-	 var table = $('#WorkshopTable').DataTable({
-			"sAjaxSource": "http://localhost:8080/TableWorkshop",
-			"sAjaxDataProp": "",
-			"aoColumns": [
-			      { "mData": "nombre"},
-		          { "mData": "autor" },
-				  { "mData": "objetivo" },
-				  { "mData": "categoria" },
-				  { "mData": "keyword" },
-				  { "mData": "duracionTotal" }
-			]
-})
-});
-
-</script>
 </head>
 
 <body>
@@ -57,6 +39,24 @@ $(document).ready( function () {
     </tfoot>-->
 </table>
 
+<script>
 
+
+$(document).ready( function () {
+	 var table = $('#WorkshopTable').DataTable({
+			"sAjaxSource": "http://localhost:8080/TableWorkshop",
+			"sAjaxDataProp": "",
+			"aoColumns": [
+			      { "mData": "nombre"},
+		          { "mData": "autor" },
+				  { "mData": "objetivo" },
+				  { "mData": "categoria" },
+				  { "mData": "keyword" },
+				  { "mData": "duracionTotal" }
+			]
+})
+});
+
+</script>
 </body>
 </html>

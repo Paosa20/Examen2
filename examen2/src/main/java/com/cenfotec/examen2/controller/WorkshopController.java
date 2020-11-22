@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpServletRequest;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.Optional;
 
 @Controller
@@ -46,6 +47,7 @@ public class WorkshopController {
     @RequestMapping(value = "/Workshop", method = RequestMethod.GET)
     public String mostrarWorkshop(Model model){
 
+
         model.addAttribute("workshop", new Workshop());
         model.addAttribute("categoria", categoriaService.getAll());
         return "Workshop";
@@ -53,8 +55,16 @@ public class WorkshopController {
 
     @RequestMapping(value = "/Workshop",  method = RequestMethod.POST)
     public String insertarAction(Workshop workshop, BindingResult result, Model model, HttpServletRequest request) {
+        List<Categorias> categorias = categoriaService.getAll();
+        if (categorias.size()==0){
+            return "Home";
+        }
         workshopService.save(workshop);
-        return "Home";
+
+        model.addAttribute("workshop",workshopService.getAll());
+        model.addAttribute("Categoria", categoriaService.getAll());
+        model.addAttribute("OtroWorkshop", new Workshop());
+        return "listaWorkshop";
     }
 
     @RequestMapping(value = "/tareasWorkshop/{id}", method = RequestMethod.GET)
@@ -120,6 +130,7 @@ public class WorkshopController {
 
     @RequestMapping(value = "/Categorias",  method = RequestMethod.POST)
     public String insertarCategoria(Categorias categorias, BindingResult result, Model model) {
+
         categoriaService.save(categorias);
         return "Home";
     }
@@ -159,6 +170,8 @@ public class WorkshopController {
         }
         workshopService.save(workshop);
         model.addAttribute("workshop",workshopService.getAll());
+        model.addAttribute("Categoria", categoriaService.getAll());
+        model.addAttribute("OtroWorkshop", new Workshop());
         return "listaWorkshop";
     }
 

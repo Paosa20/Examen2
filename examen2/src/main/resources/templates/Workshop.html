@@ -7,16 +7,18 @@
     <title>Agregar talleres</title>
 </head>
 <body>
-<h1>Bienvenido al los distintos talleres</h1>
+<h1>Bienvenido a los distintos talleres</h1>
+<h3>Debe ingresar un solo keyword.</h3>
+<h3>En todo caso de no haber categorías registradas debe hacerlo</h3>
 
 Insertar:
 <form action="#" th:action="@{/Workshop}" th:object="${workshop}" method="post">
     <label for="nombre">Name</label>
-    <input type="text" th:field="*{nombre}" id="nombre">
+    <input type="text" th:field="*{nombre}" id="nombre" th:required="required">
     <br>
 
     <label for="autor">Autor</label>
-   <select id="autor" th:field="*{autor}">
+   <select id="autor" th:field="*{autor}" th:required="required">
        <option  value="Paola Sanchez">Paola Sanchez</option>
        <option value="Mario Aguero">Mario Aguero</option>
        <option value="Robert Urizar">Robert Urizar</option>
@@ -24,18 +26,18 @@ Insertar:
    </select>
     <br>
     <label for="objetivo">Objetivo</label>
-    <input type="text" th:field="*{objetivo}" id="objetivo">
+    <input type="text" th:field="*{objetivo}" id="objetivo" th:required="required">
 
     <br>
-    <label for="categoria">Categoria</label>
-   <select id="categoria"  th:field="*{categoria}" >
+    <label for="categoria">Categoría</label>
+   <select id="categoria"  th:field="*{categoria}" th:required="required">
        <option th:each=" categoria : ${categoria}"   th:value="${categoria.nombre}" th:text="${categoria.nombre}"></option>
    </select> <!--llenar categorias con el listar de las mismas-->
 
     <br>
 
     <label for="keyword">Keywords</label>
-    <input type="text" th:field="*{keyword}" th:name="keyword" id="keyword">
+    <input type="text" th:field="*{keyword}" th:name="keyword" id="keyword" th:required="required">
 
 
     <input type="submit" value="Agregar taller">

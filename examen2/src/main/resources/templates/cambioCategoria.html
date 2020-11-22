@@ -7,10 +7,10 @@
 </head>
 <body>
 
-<h2>Modificar Categoria</h2>
+<h2>Modificar Categoría</h2>
 
 <form action="#" th:action="@{/cambioCategoria/{id}(id=${id})}" th:object="${categoria}" method="post">
-    <label for="nombre">Name</label>
+    <label for="nombre">Nombre</label>
     <input type="text" th:field="*{nombre}" id="nombre">
 
 
