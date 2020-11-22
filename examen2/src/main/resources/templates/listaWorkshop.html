@@ -36,11 +36,11 @@
     </form>
 
     <h4>Listar por Keyword:</h4>
-    <form action="#" th:action="@{/listaKeywordWorkshop}"  method="get" id="formKeyword">
+    <form action="#" th:action="@{/listaKeywordWorkshop}"   method="get" id="formKeyword">
         <label for="keyword">Keyword</label>
-        <input th:text="keywords" id="keyword">
+        <input th:text="keyword" id="keyword" th:name="keyword">
         <br/>
-        <input type="submit" th:href="@{/listaKeywordWorkshop/{keywords}(keywords=keyword}" value="Buscar">
+        <input type="submit" th:href="@{/listaKeywordWorkshop/{keyword}(keyword=${keyword})}" value="Buscar">
     </form>
 
     <ul>
@@ -51,7 +51,7 @@
                     <span th:text="${entryWorkshop.autor}">Autor</span><br>
                     <span th:text="${entryWorkshop.objetivo}">Objetivo</span><br>
                     <span th:text="${entryWorkshop.categoria}">Categoria</span><br>
-                    <span th:text="${entryWorkshop.keyword}">Keywords</span>
+                    <span th:text="${entryWorkshop.keyword}">Keywords</span><br>
                     <span th:text="${entryWorkshop.duracionTotal}">Duración en minutos</span>
 
                     <span><a th:href="@{/cambioWorkshop/{id}(id=${entryWorkshop.id})}">Modificar</a></span>

@@ -32,7 +32,7 @@ public class Workshop {
         this.autor = autor;
         this.objetivo = objetivo;
         this.categoria = categoria;
-        keyword = keyword;
+        this.keyword = keyword;
         this.duracionTotal = duracionTotal;
         this.tareas = tareas;
     }
@@ -85,7 +85,7 @@ public class Workshop {
     }
 
     public void setKeyword(String keyword) {
-        keyword = keyword;
+        this.keyword = keyword;
     }
 
     public Set<Tareas> getTareas() {
@@ -102,6 +102,6 @@ public class Workshop {
 
     public void setDuracionTotal(float duracionTotal) {
 
-        this.duracionTotal = duracionTotal+this.getDuracionTotal();
+        this.duracionTotal = duracionTotal + this.getDuracionTotal();
     }
 }

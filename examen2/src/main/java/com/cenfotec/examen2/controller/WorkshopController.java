@@ -78,6 +78,7 @@ public class WorkshopController {
 
             model.addAttribute("workshop",workshopService.getAll());
             model.addAttribute("Categoria", categoriaService.getAll());
+            model.addAttribute("OtroWorkshop", new Workshop());
             return "listaWorkshop";
         }
         return "Home";
