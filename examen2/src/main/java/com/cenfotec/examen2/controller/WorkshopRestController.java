@@ -16,8 +16,8 @@ public class WorkshopRestController {
     @Autowired
     private WorkshopService workshopService;
 
-    @RequestMapping(path="/dataTable_Workshop", method= RequestMethod.GET)
-    public List<Workshop> getAllEmployees(){
+    @RequestMapping(path="/TableWorkshop", method= RequestMethod.GET)
+    public List<Workshop> getAllWorkshop(){
         return workshopService.getAll();
     }
 }

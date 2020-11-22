@@ -37,6 +37,12 @@ public class WorkshopController {
         return "Home";
     }
 
+    @RequestMapping("/getDatatable")
+    public String dataTable(Model model)
+    {
+        return "datatable";
+    }
+
     @RequestMapping(value = "/Workshop", method = RequestMethod.GET)
     public String mostrarWorkshop(Model model){
 
